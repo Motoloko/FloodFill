@@ -1,0 +1,19 @@
+1)	Crear una matriz de 12 filas por 12 columnas
+
+2)	En toda la matriz, generar valores al azar de 1 a 4
+
+3)	Comenzando en una esquina, ubicar todos los numeros 
+	que esten continuos en celdas, sin contemplar esquinas,
+	ejemplo
+
+4)	Despues que tener la matriz, comenzar un proceso ,
+	"suponiendo que la computadora va a buscar combinaciones
+	de colores que indique la primer agrupacion como 1,
+	la segunda como 2, asi sucesivamente, ejemplo
+
+5)	Dibujar en un entorno grafico los colores de las N ciudades
+	representadas, escribiendo el numero de ciudad, como el
+	ejemplo, son 24 ciudades, contemplando como opcion del 
+	usuario de 4 a6 colores
+
+			Miercoles 15 de abril del 2015
