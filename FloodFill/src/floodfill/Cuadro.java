@@ -7,7 +7,7 @@ package floodfill;
 import java.util.Random;
 
 public class Cuadro {
-    public int arriba, abajo, derecha, izquierda, valor;
+    public int arriba, abajo, derecha, izquierda, valor, color;
     Random rnd = new Random();
     
     Cuadro(){
