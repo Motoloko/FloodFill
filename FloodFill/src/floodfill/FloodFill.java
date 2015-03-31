@@ -11,14 +11,22 @@ package floodfill;
  * @author Gerardo
  */
 public class FloodFill {
-
-    /**
-     * @param args the command line arguments
-     */
+    
+    Cuadro matrizCuadro [][] = new Cuadro[12][12];
+   
+    FloodFill(){
+        System.out.println("Creando mapa");
+        for(int i=0 ; i<12 ; i++){
+            for(int j=0 ; j<12 ; j++){
+                matrizCuadro[i][j] = new Cuadro();
+                
+            }
+            System.out.println("");
+        }
+    }
+    
     public static void main(String[] args) {
-        Cuadro cuadrito;
-        for(int i = 0 ; i<10 ; i++)
-            cuadrito = new Cuadro();
+        FloodFill flood = new FloodFill();
     }
     
 }

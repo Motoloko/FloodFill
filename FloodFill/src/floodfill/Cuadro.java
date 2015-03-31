@@ -13,7 +13,7 @@ public class Cuadro {
     Cuadro(){
         //Asignar un valor aleatorio
         valor = (rnd.nextInt(4) + 1);
-        System.out.println("valor: " + valor);
+        System.out.print(valor + " ");
     }
     
     
