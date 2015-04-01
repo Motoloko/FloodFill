@@ -23,10 +23,54 @@ public class FloodFill {
             }
             System.out.println("");
         }
+        actualizarCuadros();
+    }
+    
+    void actualizarCuadros(){
+        //Esta funcion debera de decirle a cada cuadrito que cuadros estan cerca de el
+        
+        for(int i=0 ; i<12 ; i++){
+            for(int j = 0 ; j < 12 ; j++)
+            {
+                // Primer fila
+                if(i == 0){
+                    matrizCuadro[i][j].arriba = 0;
+                    matrizCuadro[i][j].abajo = matrizCuadro[i+1][j].valor;
+                }
+                
+                if(i == 11){
+                    matrizCuadro[i][j].abajo = 0;
+                    matrizCuadro[i][j].arriba = matrizCuadro[i-1][j].valor;
+                }
+                
+                if(j == 0)
+                {
+                    matrizCuadro[i][j].izquierda = 0;
+                    matrizCuadro[i][j].derecha = matrizCuadro[i][j+1].valor;
+                }
+                
+                if(j == 11)
+                {
+                    matrizCuadro[i][j].derecha = 0;
+                    matrizCuadro[i][j].izquierda = matrizCuadro[i][j-1].valor;
+                }
+                
+                if(i > 0 && i < 11 && j > 0 && j < 11){
+                    matrizCuadro[i][j].arriba = matrizCuadro[i-1][j].valor;
+                    matrizCuadro[i][j].abajo = matrizCuadro[i+1][j].valor;
+                    matrizCuadro[i][j].izquierda = matrizCuadro[i][j-1].valor;
+                    matrizCuadro[i][j].derecha = matrizCuadro[i][j+1].valor;
+                }
+                
+            }
+        }
+        
     }
     
     public static void main(String[] args) {
         FloodFill flood = new FloodFill();
+        // Ejemplo donde muestra cuales son los vecinos del ultimo elemento
+        flood.matrizCuadro[11][11].mostrarVecinos();
     }
     
 }
