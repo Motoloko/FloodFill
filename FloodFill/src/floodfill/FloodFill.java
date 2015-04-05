@@ -6,19 +6,34 @@
 
 package floodfill;
 
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JApplet;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Gerardo
  */
-public class FloodFill {
+public class FloodFill extends JApplet implements ActionListener{
     
     Cuadro matrizCuadro [][] = new Cuadro[12][12];
+    Cuadro cucuadro = new Cuadro();
+    public JButton[][] tablero = new JButton[12][12];
+    public JPanel ventana = new JPanel();
    
     FloodFill(){
         System.out.println("Creando mapa");
         for(int i=0 ; i<12 ; i++){
             for(int j=0 ; j<12 ; j++){
                 matrizCuadro[i][j] = new Cuadro();
+                //tablero[i][j] = new JButton();
+               
+                
                 
             }
             System.out.println("");
@@ -64,13 +79,49 @@ public class FloodFill {
                 
             }
         }
+     
         
+
+    
+    }
+    
+    public void agregar(){
+        setLayout(new BorderLayout());
+        ventana.setLayout(new BorderLayout());
+        
+        ventana.setLayout(new GridLayout(12,12));
+        
+        for (int i = 0; i < 12; i++) {
+            for (int j =0; j < 12; j++) {
+                ventana.add(tablero[i][j]);
+                
+            }
+        }
+        
+        add("Center", ventana);
+       
     }
     
     public static void main(String[] args) {
         FloodFill flood = new FloodFill();
+         JFrame marco = new JFrame("Flood FIll");
         // Ejemplo donde muestra cuales son los vecinos del ultimo elemento
         flood.matrizCuadro[11][11].mostrarVecinos();
+        flood.agregar();
+        
+        
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        marco.getContentPane().add(flood, BorderLayout.CENTER);
+        marco.setBounds(0, 0, 1000, 1000);
+        marco.setLocationRelativeTo(null);
+        marco.setResizable(false);
+        marco.setVisible(true);
+        marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
