@@ -6,14 +6,10 @@
 
 package floodfill;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JApplet;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  *
@@ -31,10 +27,8 @@ public class FloodFill extends JApplet implements ActionListener{
         for(int i=0 ; i<12 ; i++){
             for(int j=0 ; j<12 ; j++){
                 matrizCuadro[i][j] = new Cuadro();
-                //tablero[i][j] = new JButton();
-               
-                
-                
+                tablero[i][j] = new JButton(String.valueOf(matrizCuadro[i][j].valor));
+                tablero[i][j].setBackground(Color.white);                     
             }
             System.out.println("");
         }
@@ -80,9 +74,6 @@ public class FloodFill extends JApplet implements ActionListener{
             }
         }
      
-        
-
-    
     }
     
     public void agregar(){
@@ -112,7 +103,7 @@ public class FloodFill extends JApplet implements ActionListener{
         
         JFrame.setDefaultLookAndFeelDecorated(true);
         marco.getContentPane().add(flood, BorderLayout.CENTER);
-        marco.setBounds(0, 0, 1000, 1000);
+        marco.setBounds(0, 0, 700, 700);
         marco.setLocationRelativeTo(null);
         marco.setResizable(false);
         marco.setVisible(true);
