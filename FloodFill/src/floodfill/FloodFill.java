@@ -28,7 +28,19 @@ public class FloodFill extends JApplet implements ActionListener{
             for(int j=0 ; j<12 ; j++){
                 matrizCuadro[i][j] = new Cuadro();
                 tablero[i][j] = new JButton(String.valueOf(matrizCuadro[i][j].valor));
-                tablero[i][j].setBackground(Color.white);                     
+                if (matrizCuadro[i][j].valor == 1) {
+                    tablero[i][j].setBackground(Color.yellow);
+                }
+                if (matrizCuadro[i][j].valor == 2) {
+                    tablero[i][j].setBackground(Color.white);
+                }
+                if (matrizCuadro[i][j].valor == 3) {
+                    tablero[i][j].setBackground(Color.black);
+                }
+                if (matrizCuadro[i][j].valor == 4) {
+                    tablero[i][j].setBackground(Color.red);
+                }
+                //tablero[i][j].setBackground(Color.white);                     
             }
             System.out.println("");
         }
