@@ -17,6 +17,7 @@ public class Cuadro {
         System.out.print(valor + " ");
     }
     
+    
     public void mostrarVecinos(){
         System.out.println("Arriba: " + arriba);
         System.out.println("Abajo: " + abajo);
