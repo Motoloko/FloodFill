@@ -100,6 +100,7 @@ public class FloodFill extends JApplet implements ActionListener {
         add("Center", ventana);
 
     }
+//
     public static void main(String[] args) {
         FloodFill flood = new FloodFill();
         JFrame marco = new JFrame("Flood FIll");
