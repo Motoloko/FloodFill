@@ -19,6 +19,7 @@ public class FloodFill extends JApplet implements ActionListener{
     
     Cuadro matrizCuadro [][] = new Cuadro[12][12];
     Cuadro cucuadro = new Cuadro();
+    int[][] mat2= new int[12][12];
     public JButton[][] tablero = new JButton[12][12];
     public JPanel ventana = new JPanel();
    
@@ -105,6 +106,69 @@ public class FloodFill extends JApplet implements ActionListener{
        
     }
     
+    //Cambia los valores del boton
+    void cambiarNumeros(){
+        for(int i=0 ; i<12; i++){
+            for(int j=0; j<12; j++){
+                tablero[i][j].setText(String.valueOf(mat2[i][j]));
+            }
+        }
+    }
+    
+    void reEnum(){
+        int numActual = 1;
+        mat2[0][0] = 1;
+        //Solo primera linea
+        for(int i=1 ; i < 12 ; i++){
+            //es el mismo que a la izquierda
+            if(matrizCuadro[0][i].valor == matrizCuadro[0][i-1].valor)
+            {
+                mat2[0][i] = numActual;
+            }
+            else
+            {
+                numActual++;
+                mat2[0][i] = numActual;
+            }
+        }
+        
+        //apartir de la 2da linea
+        for(int i=1; i<12;i++){
+            for(int j=0; j<12; j++){
+                int error = 0;
+                //Revisar a la izquierda
+                if(j>0){
+                    if(matrizCuadro[i][j].valor == matrizCuadro[i][j-1].valor){
+                        mat2[i][j] = mat2[i][j-1];
+                    }
+                    else
+                        error++;
+                }
+                
+                //revisar arriba
+                if(matrizCuadro[i][j].valor == matrizCuadro[i-1][j].valor){
+                    mat2[i][j] = mat2[i-1][j];
+                }
+                else{
+                    if(j==0){
+                        numActual++;
+                        mat2[i][j] = numActual;
+                    }
+                    else
+                        error++;
+                }
+                
+                if(error > 1){
+                        numActual++;
+                        mat2[i][j] = numActual;
+                    }
+                
+            }
+        }
+        
+        cambiarNumeros();
+    }
+    
     public static void main(String[] args) {
         FloodFill flood = new FloodFill();
          JFrame marco = new JFrame("Flood FIll");
@@ -120,6 +184,8 @@ public class FloodFill extends JApplet implements ActionListener{
         marco.setResizable(false);
         marco.setVisible(true);
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        flood.reEnum();
     }
 
     @Override
